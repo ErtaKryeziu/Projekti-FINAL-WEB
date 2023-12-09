@@ -12,6 +12,7 @@
     text-transform: capitalize;
     transition: all .2s linear;
     text-transform: none;
+
 }
 
 html{
@@ -87,9 +88,6 @@ span{
     
 }
 
-.header .logo i{
-    color: #F08080;
-}
 .header .navbar a{
     margin: 0 1.5rem;
     font-size: 1.7rem;
@@ -180,6 +178,7 @@ span{
 
 /*about*/
 .about{
+    background:#fff;
     display:flex;
     align-items:center;
     flex-wrap:wrap;
@@ -218,21 +217,11 @@ flex: 1 1 42rem;
 }
 
 
-.about .content .icons-container{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    gap: 2rem;
-    margin-top: 2rem;
-    font-family: 'Playfair Display', serif;
-     
-
-}
 /*about ends*/
 /*products*/
 
 .shop{
-    color:#eee;
+    color:#fff;
 }
 .shop .box-container{
     display: grid;
@@ -281,4 +270,5 @@ flex: 1 1 42rem;
     text-decoration: line-through;
 
 }
+
 /*products end*/
