@@ -65,6 +65,7 @@ span{
         transform: translateY(-4rem) scale(0.4);
     }
 }
+/*header begins*/
 .header{
     position: sticky;
     top: 0;
@@ -101,6 +102,8 @@ span{
 .header #menu-btn{
     display: none;
 }
+/*header ends*/
+/*home begins*/
 .home{
     position: relative;
     padding:0;
@@ -145,3 +148,137 @@ span{
 .home .slide .content .btn{
     animation: fadeIn .2s linear backwards .6s;
 }
+/*home ends*/
+/*category */
+
+.category .box-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap:2rem;
+}
+
+.category .box-container .box{
+    text-align:center;
+}
+
+.category .box-container .box:hover h3{
+    color: #F08080
+    
+}
+.category .box-container .box img{
+    height:14rem;
+    margin-bottom:1rem;
+}
+
+.category .box-container .box h3{
+    font-size:1.7rem;
+    color: #222;
+    font-weight: bold;
+    font-family:'Playfair Display', serif;';
+}
+/*category ends*/
+
+/*about*/
+.about{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:2rem;
+
+}
+.about .img{
+flex: 1 1 42rem;
+padding-bottom: 5rem;
+padding-right: 5rem;
+}
+.about .img img{
+    width: 100%;
+    box-shadow: 4rem 4rem 0 lightyellow;
+}
+.about .content{
+flex: 1 1 42rem;
+}
+.about .content .box{
+    padding: 3rem;
+    background: lightyellow;
+}
+.about .content .box h3{
+    font-size:2.5rem;
+    color: #222;
+    font-family: 'Playfair Display', serif;
+}
+.about .content .box p{
+    padding: 1rem 0;
+    line-height: 2;
+    color: #666;
+    font-size:1.8rem;
+    font-family: 'Playfair Display', serif;
+    text-transform: none;
+    
+}
+
+
+.about .content .icons-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-top: 2rem;
+    font-family: 'Playfair Display', serif;
+     
+
+}
+/*about ends*/
+/*products*/
+
+.shop{
+    color:#eee;
+}
+.shop .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(31rem,1fr));
+    gap:2rem;
+}
+.shop .box-container .box{
+    text-align: center;
+    background: #fff;
+    border:0.2rem solid #222;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+
+}
+.shop .box-container .box:hover .img img{
+    transform: scale(1.1);
+}
+
+
+
+.shop .box .container .box img{
+    position: relative;
+    overflow: hidden;
+
+}
+.shop .box-container .box .img img{
+    height: 25rem;
+
+}
+
+
+.shop .box-container .box .content h3{
+    font-size: 2rem;
+    color: #222;
+    padding-bottom: 5rem;
+    font-weight: normal;
+}
+.shop .box-container .box .content .price{
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #F08080;
+}
+
+.shop .box-container .box .content .price span{
+    color: #666;
+    font-size:1.7rem ;
+    text-decoration: line-through;
+
+}
+/*products end*/
