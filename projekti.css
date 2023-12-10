@@ -162,6 +162,67 @@ span {
 }
 
 /*home ends*/
+
+/*arrivals*/
+.sop {
+    background:url(foto/snoww.jpg) no-repeat;
+    background-size: cover;
+ }
+ 
+ .sop .box-container {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+     gap: 2rem;
+ }
+ 
+ .sop .box-container .box {
+     text-align: center;
+     background: #fff;
+     border: 0.2rem solid #222;
+     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+ 
+ }
+ 
+ .sop .box-container .box:hover .img img {
+     transform: scale(1.1);
+ }
+ 
+ 
+ 
+ .sop .box .container .box img {
+     position: relative;
+     overflow: hidden;
+ 
+ }
+ 
+ .sop .box-container .box .img img {
+     height: 20rem;
+ 
+ }
+ 
+ 
+ .sop .box-container .box .content h3 {
+     font-size: 2rem;
+     color: #222;
+     padding-bottom: 5rem;
+     font-weight: normal;
+ }
+ 
+ .sop .box-container .box .content .price {
+     font-size: 2rem;
+     font-weight: bolder;
+     color: #F08080;
+ }
+ 
+ .sop .box-container .box .content .price span {
+     color: #666;
+     font-size: 1.7rem;
+     text-decoration: line-through;
+ 
+ }
+ 
+
+
 /*category */
 
 .category .box-container {
@@ -189,6 +250,39 @@ span {
     font-weight: bold;
     font-family: 'Playfair Display', serif;
 }
+
+/*special offer*/
+.message{
+    background:url(foto/ch.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+.message .content{
+    max-width: 40rem;
+    background: #fff;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    text-align: center;
+    margin: 10rem 0;
+}
+.message .content span{
+    font-size: 2rem;
+
+}
+.message .content h3{
+    font-size: 3rem;
+    color: #222;
+    padding-top: .5rem;
+}
+.message .content p{
+    font-size: 1.4rem;
+    color: #666;
+    padding: 1rem 0;
+    line-height: 2;
+
+}
+
 
 /*category ends*/
 
@@ -237,13 +331,77 @@ span {
     text-transform: none;
 
 }
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "montserrat", sans-serif;
+}
+.testimonials{
+    padding: 40px 0;
+    background: #f1f1f1;
+    color: #434343;
+    text-align: center;
+}
+.inner{
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+.border{
+    width: 160px;
+    height: 5px;
+    background: lightpink;
+    margin:26px auto;
+
+
+
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  
+}
+.col{
+    flex: 33.33%;
+    max-width: 33.33%;
+    box-sizing: border-box;
+    padding: 15px;
+}
+.testimonials{
+    background: #fff;
+    background: 30px;
+
+
+}
+.testimonial img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.name{
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+.stars{
+    color: yellow;
+    margin-bottom: 20px;
+}
+
+@media screen and(max-width:600px) {
+    .col{
+        flex: 100%;
+        max-width:100%;
+    }
+}
 
 
 /*about ends*/
 /*products*/
 
 .shop {
-    color: #fff;
+   background-color:  rgb(245, 212, 218);
 }
 
 .shop .box-container {
