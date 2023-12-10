@@ -366,7 +366,7 @@ header {
   display: flex;
 }
 
-.container {
+.container2 {
   max-width: 1200px;
   margin: auto;
   padding: 1rem;
@@ -375,7 +375,7 @@ header {
   gap: 10rem;
 }
 
-.container__left h1 {
+.container2__left h1 {
   margin-bottom: 4rem;
   font-size: 3rem;
   font-weight: 500;
@@ -387,7 +387,7 @@ header {
   
 }
 
-.container__left p {
+.container2__left p {
   color: var(--text-dark);
   margin-bottom: 4rem;
   font-size: 2rem;
@@ -395,7 +395,7 @@ header {
 }
 
 
-.container__right {
+.container2__right {
   display: grid;
   gap: 2rem;
 }
@@ -536,11 +536,11 @@ header {
     padding: 50px;
     text-align: center;
 }
-.container{
+.container1{
     max-width: 800px;
     margin:0 auto;
 }
-.container h2{
+.container1 h2{
     font-size: 36px;
     margin-bottom: 40px;
     color:#333;
@@ -610,7 +610,7 @@ color: #333;
      margin-right: 10px;
 }
 @media screen and (max-width: 768px) {
-    .container{
+    .container1{
         padding: 20px;
     }
     .contact-wrapper{
