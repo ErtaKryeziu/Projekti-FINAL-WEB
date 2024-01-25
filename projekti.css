@@ -466,7 +466,8 @@ header {
 /*products*/
 
 .shop {
-   background-color:  rgb(240, 155, 171);
+   /*background-color:  rgb(240, 155, 171);*/
+   background-color: rgb(229, 178, 188);
 }
 
 .shop .box-container {
@@ -532,7 +533,8 @@ header {
 }
 .contact{
     min-height: 100vh;
-    background-color: rgb(240, 155, 171);
+   /* background-color: rgb(240, 155, 171);*/
+   background-color: rgb(229, 178, 188);
     padding: 50px;
     text-align: center;
 }
