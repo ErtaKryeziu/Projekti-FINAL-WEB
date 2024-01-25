@@ -1,6 +1,13 @@
-<link rel="stylesheet" href="projekti.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Belle</title>
+  <link rel="stylesheet" href="projekti.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<title>Contact Us | Belle</title>
+</head>
+<body>
 <section id="header" class="header">
         
   <a href="#" class="logo">BELLE</a>
@@ -9,7 +16,7 @@
     <a href="about.html">About</a>
     <a href="products.html">Products</a>
     <a href="contact.html">Contact</a>
-    <a href="register.html">Register</a>
+    <a href="registeri.html">Login</a>
 
 </nav>
 </section>
@@ -84,6 +91,35 @@
       </div>
   </div>
 </footer>
+<script>
+  let nameRegex = /^[A-Za-z\s]+$/;
+        let emailRegex = /[a-zA-Z.-_]+@+[a-z]+\.+[a-z]{2,3}$/;
+
+        function validation() {
+            let nameInput = document.getElementsByName('name')[0];
+            let emailInput = document.getElementsByName('email')[0];
+            let messageInput = document.getElementsByName('message')[0];
+
+            if (!nameRegex.test(nameInput.value.trim())) {
+                alert('Invalid name. Please use only letters and spaces.');
+                return false;
+            }
+
+            if (!emailRegex.test(emailInput.value)) {
+                alert('Invalid email');
+                return false;
+            }
+
+            if (messageInput.value.trim() === '') {
+                alert('Please enter a message');
+                return false;
+            }
+
+            return true;
+        }
+</script>
+</body>
+</html>
 
 
 
