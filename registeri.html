@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: rgb(245, 212, 218);
+            background-position: center;
+            background-size: cover;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-box {
+            position: relative;
+            width: 400px;
+            height: 550px;
+            border: 2px solid rgba(0, 0, 0, 0.514);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .form-box h2 {
+            color: black;
+            text-align: center;
+            font-size: 32px;
+        }
+
+        .form-box .input-box {
+            position: relative;
+            margin: 20px 0;
+            width: 310px;
+            border-bottom: 2px solid black;
+        }
+
+        .form-box .input-box input {
+            width: 100%;
+            height: 45px;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 0 20px 0 5px;
+            color: black;
+            font-size: 16px;
+        }
+
+        .form-box .error-message {
+            color: red;
+            font-weight: 600;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            font-size: 14px;
+        }
+
+        .form-box .button {
+            margin-top: 20px;
+        }
+
+        .form-box .button .btn {
+            color: #fff;
+            background: rgb(210, 80, 102);
+            width: 100%;
+            height: 50px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            font-size: 17px;
+            cursor: pointer;
+            box-shadow: 3px 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-box .group {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-box .group a {
+            color: black;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        #result {
+            color: red;
+            font-weight: 600;
+            position: relative;
+            top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <form action="logini.html" name="Formfill" id="registrationForm" onsubmit="return validateRegistrationForm()">
+                <h2>Register</h2>
+                <p id="result"></p>
+                <div class="input-box">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" name="Username" id="username" placeholder="Username">
+                    <div class="error-message" id="usernameError"></div>
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-envelope'></i>
+                    <input type="email" name="Email" id="email" placeholder="Email">
+                    <div class="error-message" id="emailError"></div>
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" name="Password" id="password" placeholder="Password">
+                    <div class="error-message" id="passwordError"></div>
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" name="CPassword" id="confirmPassword" placeholder="Confirm Password">
+                    <div class="error-message" id="confirmPasswordError"></div>
+                </div>
+                <div class="button">
+                    <input type="submit" class="btn" value="Register">
+                </div>
+                <div class="group">
+                    <span><a href="#">Forget-Password</a></span>
+                    <span><a href="logini.html">Login</a></span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let usernameRegex = /^[a-zA-Z0-9_-]{3,16}$/;
+        let emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+        function validateRegistrationForm() {
+            let usernameInput = document.getElementById('username');
+            let emailInput = document.getElementById('email');
+            let passwordInput = document.getElementById('password');
+            let confirmPasswordInput = document.getElementById('confirmPassword');
+            let usernameError = document.getElementById('usernameError');
+            let emailError = document.getElementById('emailError');
+            let passwordError = document.getElementById('passwordError');
+            let confirmPasswordError = document.getElementById('confirmPasswordError');
+            let result = document.getElementById('result');
+
+            usernameError.innerText = '';
+            emailError.innerText = '';
+            passwordError.innerText = '';
+            confirmPasswordError.innerText = '';
+            result.innerText = '';
+
+            if (!usernameRegex.test(usernameInput.value)) {
+                usernameError.innerText = 'Invalid username (3-16 characters, letters, numbers, hyphen, and underscore allowed)';
+                return false;
+            }
+
+            if (!emailRegex.test(emailInput.value)) {
+                emailError.innerText = 'Invalid email';
+                return false;
+            }
+
+            if (!passwordRegex.test(passwordInput.value)) {
+                passwordError.innerText = 'Invalid password (at least 8 characters, including at least one letter and one number)';
+                return false;
+            }
+
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                confirmPasswordError.innerText = 'Passwords do not match';
+                return false;
+            }
+
+            OpenSlide();
+            return false; 
+        }
+
+        function OpenSlide() {
+            document.getElementById('popup').classList.add('open-slide');
+        }
+
+        function CloseSlide() {
+            document.getElementById('popup').classList.remove('open-slide');
+        }
+    </script>
+</body>
+</html>
