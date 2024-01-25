@@ -162,7 +162,20 @@ span {
 }
 
 /*home ends*/
-
+/*slider begins*/
+.slideshow-container {
+    max-width: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.mySlides {
+    display: none;
+}
+#slideshow {
+    max-width: 100%;
+    height: auto;
+}
+/*slider ends*/
 /*arrivals*/
 .sop {
     background:url(foto/snoww.jpg) no-repeat;

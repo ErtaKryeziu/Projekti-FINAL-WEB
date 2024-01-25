@@ -40,6 +40,22 @@
 
     </section>
 
+    <section class="slideshow-container">
+        <div class="mySlides">
+            <img src="foto/pic1r.webp" id="slideshow" alt="Slide 1">
+        </div>
+        <div class="mySlides">
+            <img src="foto/pic2r.jpg" id="slideshow" alt="Slide 2">
+        </div>
+        <div class="mySlides">
+            <img src="foto/pic3r.png" id="slideshow" alt="Slide 3">
+        </div>
+        <div class="mySlides">
+            <img src="foto/pic4.jpg" id="slideshow" alt="Slide 4">
+        </div>
+    </section>
+
+
     <section class="category">
         <h1 class="heading">Categories</h1>
         <div class="box-container">
@@ -188,6 +204,25 @@
     </footer>
 
     <script src="projekti.js"></script>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2600); // Change slide every 2.6 seconds
+        }
+    </script>
 
 </body>
 
