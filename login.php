@@ -1,3 +1,49 @@
+<?php 
+    session_start();
+include 'database.php';
+
+
+if(isset($_POST['login_btn'])){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $result = $conn->query($sql);
+
+
+    if (!$result) {
+        die("Error: " . $conn->error);
+    }
+
+
+    if($result->num_rows > 0){
+            // Useri ekziston 
+            $row = $result->fetch_assoc();
+            if($row['password'] == $password){
+
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['username'] = $row['username'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['role'] = $row['role'];
+                $_SESSION['avatar'] = $row['avatar'];
+
+                header("Location: projekti.php");
+                exit();
+            }else{
+                $error_message = "Incorrect pasword";
+            }
+    }else{
+            $eerror_message = "User not found";
+    }
+
+}
+
+$conn->close();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,22 +147,25 @@ body {
 <body>
     <div class="container">
         <div class="form-box">
-            <form action="projekti.html" method="post" name="Formfill" onsubmit="return validation()">
+            <form action="" method="post" name="Formfill" onsubmit="return validation()">
                 <h2>Login</h2>
                 <p id="result"></p>
                 <div class="input-box">
                     <i class='bx bxs-envelope'></i>
-                    <input type="email" name="Email" id="email" placeholder="Email">
+                    <input type="email" name="email" id="email" placeholder="Email">
                     <div class="error-message" id="emailError"></div>
                 </div>
                 <div class="input-box">
                     <i class='bx bxs-lock-alt'></i>
-                    <input type="password" name="Password" id="password" placeholder="Password">
+                    <input type="password" name="password" id="password" placeholder="Password">
                     <div class="error-message" id="passwordError"></div>
                 </div>
                 <div class="button">
-                    <input type="submit" class="btn" value="Login">
+                    <input type="submit" class="btn" name="login_btn" value="Login">
                 </div>
+                <span><a href="register.php">Register</a></span>
+
+              
             </form>
         </div>
     </div>

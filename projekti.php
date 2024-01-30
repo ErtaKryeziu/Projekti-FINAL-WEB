@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    include 'database.php';
+
+    if (!isset($_SESSION['user_id'])) {
+        header("Location: login.php");
+        exit();
+    }
+
+    
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,18 +26,24 @@
 
 <body>
 
-    <section id="header" class="header">
+    <?php include 'navbar.php'; ?>
+
+    <!-- <section id="header" class="header">
 
         <a href="#" class="logo">BELLE</a>
         <nav class="navbar">
-            <a href="home.html">Home</a>
+            
+            <a href="projekti.php">Home</a>
             <a href="about.html">About</a>
             <a href="products.html">Products</a>
             <a href="contact.html">Contact</a>
             <a href="registeri.html">Login</a>
+            <?php if(isset($_SESSION['user_id'])): ?>
+                <a href="logout.php">Logout</a>
+            <?php endif; ?>
 
         </nav>
-    </section>
+    </section> -->
     <section class="home" id="home">
 
         <div class="slide active" style="background:url(foto/background.jpg) no-repeat; background-size:cover;
