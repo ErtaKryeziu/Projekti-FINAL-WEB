@@ -1,3 +1,52 @@
+<?php 
+    include 'database.php';
+    session_start();
+
+    if(isset($_POST['register_btn'])){
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $selectedRole = 'user'; // 'administrator' or 'user'
+        
+        // Check if avatar URL is provided, otherwise use a default URL
+        $avatar = isset($_POST['avatar']) ? $_POST['avatar'] : 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+
+        // Query to check if the username is already taken
+        $checkUsernameQuery = "SELECT * FROM users WHERE username = '$username'";
+        $result = $conn->query($checkUsernameQuery);
+
+        // Check for errors
+        if (!$result) {
+            die("Error: " . $conn->error);
+        }
+
+        // Check if the username is already taken
+        if ($result->num_rows > 0) {
+            echo '<div class="alert alert-danger" role="alert">Username is already taken. Please choose a different username.</div>';
+        } else {
+            // Insert the new user into the database
+            $insertUserQuery = "INSERT INTO users (username, email, password, role, image_url) VALUES ('$username', '$email', '$password', '$selectedRole', '$avatar')";
+            if ($conn->query($insertUserQuery) === TRUE) {
+                // Registration successful! Set session variables and redirect to index.php
+                $_SESSION['user_id'] = $conn->insert_id;
+                $_SESSION['username'] = $username;
+                $_SESSION['email'] = $email;
+                $_SESSION['role'] = $selectedRole;
+                $_SESSION['avatar'] = $avatar;
+
+                echo '<div class="alert alert-success" role="alert">Registration successful! You are now logged in.</div>';
+                header("Location: projekti.php");
+                exit();
+            } else {
+                echo '<div class="alert alert-danger" role="alert">Error: ' . $conn->error . '</div>';
+            }
+        }
+
+    }
+ 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,35 +163,40 @@
 <body>
     <div class="container">
         <div class="form-box">
-            <form action="logini.html" name="Formfill" id="registrationForm" onsubmit="return validateRegistrationForm()">
+            <form action="" method="post" name="Formfill" id="registrationForm" onsubmit="return validateRegistrationForm()">
                 <h2>Register</h2>
                 <p id="result"></p>
                 <div class="input-box">
                     <i class='bx bxs-user'></i>
-                    <input type="text" name="Username" id="username" placeholder="Username">
+                    <input type="text" name="username" id="username" placeholder="Username">
                     <div class="error-message" id="usernameError"></div>
                 </div>
                 <div class="input-box">
                     <i class='bx bxs-envelope'></i>
-                    <input type="email" name="Email" id="email" placeholder="Email">
+                    <input type="email" name="email" id="email" placeholder="Email">
                     <div class="error-message" id="emailError"></div>
                 </div>
                 <div class="input-box">
                     <i class='bx bxs-lock-alt'></i>
-                    <input type="password" name="Password" id="password" placeholder="Password">
+                    <input type="password" name="password" id="password" placeholder="Password">
                     <div class="error-message" id="passwordError"></div>
                 </div>
                 <div class="input-box">
                     <i class='bx bxs-lock-alt'></i>
-                    <input type="password" name="CPassword" id="confirmPassword" placeholder="Confirm Password">
+                    <input type="password" name="cpassword" id="confirmPassword" placeholder="Confirm Password">
+                    <div class="error-message" id="confirmPasswordError"></div>
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" name="avatar" id="avatar" placeholder="Place your avatar url">
                     <div class="error-message" id="confirmPasswordError"></div>
                 </div>
                 <div class="button">
-                    <input type="submit" class="btn" value="Register">
+                    <input type="submit" name = "register_btn" class="btn" value="Register">
                 </div>
                 <div class="group">
                     <span><a href="#">Forget-Password</a></span>
-                    <span><a href="logini.html">Login</a></span>
+                    <span><a href="login.php">Login</a></span>
                 </div>
 
             </form>
@@ -205,3 +259,4 @@
     </script>
 </body>
 </html>
+    
