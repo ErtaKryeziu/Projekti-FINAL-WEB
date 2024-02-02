@@ -1,3 +1,35 @@
+<?php
+include 'database.php'; // Include your database connection file
+session_start();
+
+if(!isset($_SESSION['user_id'])){
+    header('Location: login.php');
+    exit();
+}
+
+
+if (isset($_POST['contact_btn'])) {
+    // Get form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+    // SQL query to insert data into the "contacts" table
+    $sql = "INSERT INTO contacts (name, email, message) VALUES ('$name', '$email', '$message')";
+
+    // Perform the query
+    if ($conn->query($sql) == TRUE) {
+        header("Location: projekti.php");
+        exit();
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Close the database connection
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +40,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-<section id="header" class="header">
-        
-  <a href="#" class="logo">BELLE</a>
-    <nav class="navbar">
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="products.html">Products</a>
-    <a href="contact.html">Contact</a>
-    <a href="registeri.html">Login</a>
-
-</nav>
-</section>
+    <?php include 'navbar.php'; ?>
 
 <section class="contact">
     <div class="container1">
@@ -27,7 +48,7 @@
         <div class="contact-wrapper">
           <div class="contact-form">
             <h3>Send us a message</h3>
-          <form>
+          <form action="" method="post">
             <div class="form-group">
                <input type="text" name="name" placeholder="Your Name"> 
             </div>
@@ -37,7 +58,7 @@
              <div class="form-group">
                 <textarea name="message" placeholder="Your Message"></textarea> 
              </div>
-        <button type="submit">Send Message</button>
+            <button type="submit" name="contact_btn">Send Message</button>
           </form>
           </div>  
           <div class="contact-info">
