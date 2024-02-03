@@ -1,5 +1,5 @@
 <?php
-// Include the database connection file
+
 include 'database.php';
 session_start();
 
@@ -10,7 +10,7 @@ if ($_SESSION['role'] != 'administrator') {
 if (isset($_GET['id'])) {
     $userId = $_GET['id'];
 
-    // Fetch user data by ID
+    
     $sql = "SELECT * FROM users WHERE id = $userId";
     $result = $conn->query($sql);
 
@@ -23,14 +23,13 @@ if (isset($_GET['id'])) {
     die("User ID not provided");
 }
 
-// Handle form submission for user update
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newUsername = $_POST['new_username'];
     $newEmail = $_POST['new_email'];
     $newRole = $_POST['new_role'];
-    $newAvatar = $_POST['new_avatar']; // New profile picture URL
+    $newAvatar = $_POST['new_avatar']; 
 
-    // Update user data in the database
     $updateSql = "UPDATE users SET username = '$newUsername', email = '$newEmail', role = '$newRole', avatar = '$newAvatar' WHERE id = $userId";
 
     if ($conn->query($updateSql) === TRUE) {
@@ -42,7 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Close the database connection
 $conn->close();
 ?>
 <!DOCTYPE html>
@@ -53,18 +51,18 @@ $conn->close();
     <title>Edit User</title>
     <style>
         body {
-            background-color: #fcd9d9; /* Light pink background color */
+            background-color: #fcd9d9;
             font-family: Arial, sans-serif;
             padding: 50px;
             box-sizing: border-box;
         }
 
         h2 {
-            color: #333; /* Dark text color for headings */
+            color: #333; 
         }
 
         form {
-            background-color: #fff; /* White background for the form */
+            background-color: #fff; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
             margin-top: 20px;
@@ -73,7 +71,7 @@ $conn->close();
         label {
             display: block;
             margin-bottom: 10px;
-            color: #333; /* Dark text color for labels */
+            color: #333;
         }
 
         input {

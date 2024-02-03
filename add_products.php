@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 if (isset($_POST['add_product_btn'])) {
-    // Retrieve form data
+    
     $productName = $_POST['productName'];
     $productPrice = $_POST['productPrice'];
     $imageUrl = $_POST['imageUrl'];
@@ -20,11 +20,11 @@ if (isset($_POST['add_product_btn'])) {
     $userId = $_SESSION['user_id'];
     $username = $_SESSION['username'];
 
-    // SQL command to insert product
+
     $insertProductSQL = "INSERT INTO products (name, price, image_url, stock, description, user_id, username) 
                          VALUES ('$productName', $productPrice, '$imageUrl', $stock, '$description', $userId, '$username')";
 
-    // Execute the SQL command
+    
     if ($conn->query($insertProductSQL) === TRUE) {
         echo "Product added successfully!";
         header('Location: products.php');
@@ -45,7 +45,7 @@ $conn->close();
     <link rel="stylesheet" href="projekti.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Scoped styles for add_products.php */
+        
         body {
             margin: 0;
             padding: 0;
@@ -58,7 +58,7 @@ $conn->close();
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: calc(100vh - 86px); /* Adjusted to consider header height */
+            min-height: calc(100vh - 86px); 
         }
 
         .form-box {

@@ -6,28 +6,28 @@
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $selectedRole = 'user'; // 'administrator' or 'user'
+        $selectedRole = 'user'; 
         
-        // Check if avatar URL is provided, otherwise use a default URL
+       
         $avatar = isset($_POST['avatar']) ? $_POST['avatar'] : 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
-        // Query to check if the username is already taken
+        
         $checkUsernameQuery = "SELECT * FROM users WHERE username = '$username'";
         $result = $conn->query($checkUsernameQuery);
 
-        // Check for errors
+       
         if (!$result) {
             die("Error: " . $conn->error);
         }
 
-        // Check if the username is already taken
+        
         if ($result->num_rows > 0) {
             echo '<div class="alert alert-danger" role="alert">Username is already taken. Please choose a different username.</div>';
         } else {
-            // Insert the new user into the database
+          
             $insertUserQuery = "INSERT INTO users (username, email, password, role, image_url) VALUES ('$username', '$email', '$password', '$selectedRole', '$avatar')";
             if ($conn->query($insertUserQuery) === TRUE) {
-                // Registration successful! Set session variables and redirect to index.php
+   
                 $_SESSION['user_id'] = $conn->insert_id;
                 $_SESSION['username'] = $username;
                 $_SESSION['email'] = $email;

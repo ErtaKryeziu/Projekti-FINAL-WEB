@@ -31,7 +31,7 @@
     <div class="box-container">
         <?php
         if($result->num_rows > 0){
-            // loop through each row in the result set
+            
             while($row = $result->fetch_assoc()) {
                 ?>
         <div class="box">

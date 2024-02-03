@@ -2,11 +2,11 @@
 include 'database.php';
 session_start();
 
-// Check if the product ID is provided in the URL
+
 if (isset($_GET['id'])) {
     $productId = $_GET['id'];
 
-    // Fetch product data by ID
+   
     $productQuery = "SELECT * FROM products WHERE id = $productId";
     $result = $conn->query($productQuery);
 
@@ -31,7 +31,7 @@ if (isset($_GET['id'])) {
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fcd9d9; /* Light pink background color */
+            background-color: #fcd9d9; 
             margin: 0;
             padding: 0;
         }
@@ -39,8 +39,8 @@ if (isset($_GET['id'])) {
         .product-details {
             padding: 50px 0;
             text-align: center;
-            background-color: #fcd9d9; /* Light pink background color */
-            height: 600px; /* Set a static height for the product details section */
+            background-color: #fcd9d9; 
+            height: 600px;
         }
 
         .container {
@@ -64,7 +64,7 @@ if (isset($_GET['id'])) {
         .product-info {
             max-width: 600px;
             text-align: left;
-            padding-left: 20px; /* Add some padding to the left for better readability */
+            padding-left: 20px; 
         }
 
         .product-info h2 {
@@ -77,7 +77,7 @@ if (isset($_GET['id'])) {
             color: #555;
             margin-bottom: 20px;
             font-size: 1.2em;
-            line-height: 1.5; /* Increase line height for better readability */
+            line-height: 1.5; 
         }
 
         .price {

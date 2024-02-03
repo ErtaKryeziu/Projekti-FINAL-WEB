@@ -1,5 +1,5 @@
 <?php
-// Include the database connection file
+
 include 'database.php';
 session_start();
 
@@ -10,7 +10,6 @@ if ($_SESSION['role'] != 'administrator') {
 if (isset($_GET['id'])) {
     $userId = $_GET['id'];
 
-    // Delete user from the database
     $deleteSql = "DELETE FROM users WHERE id = $userId";
 
     if ($conn->query($deleteSql) === TRUE) {
@@ -23,6 +22,6 @@ if (isset($_GET['id'])) {
     die("User ID not provided");
 }
 
-// Close the database connection
+
 $conn->close();
 ?>

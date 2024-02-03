@@ -12,7 +12,7 @@
 
     $products = array();
 
-    // Store the products in an array
+    
     while ($row = mysqli_fetch_assoc($productResult)) {
         $products[] = $row;
     }
@@ -82,7 +82,7 @@
     <div class="box-container">
 
         <?php
-        // Display the products using the specified design
+      
         foreach ($products as $product) {
             echo '<div class="box">';
             echo '<a href="view_product.php?id=' . $product['id'] . '">';
@@ -180,7 +180,7 @@
                 slideIndex = 1;
             }
             slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 2600); // Change slide every 2.6 seconds
+            setTimeout(showSlides, 2600); 
         }
     </script>
 

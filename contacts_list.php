@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
-            background-color: #fcd9d9; /* Light pink background color */
+            background-color: #fcd9d9; 
             font-family: Arial, sans-serif;
             padding: 50px;
             box-sizing: border-box;
@@ -25,7 +25,7 @@
             width: 80%;
             margin: 20px auto;
             border-collapse: collapse;
-            background-color: #fff; /* White background for the table */
+            background-color: #fff; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -36,20 +36,20 @@
         }
 
         th {
-            background-color: #fcd9d9; /* Light pink background for table header */
+            background-color: #fcd9d9; 
         }
 
         td {
-            background-color: #fff; /* White background for table cells */
+            background-color: #fff; 
         }
 
         a {
             text-decoration: none;
-            color: #333; /* Dark text color for links */
+            color: #333;
         }
 
         a:hover {
-            color: #f00; /* Change link color on hover */
+            color: #f00; 
         }
 
         button {
@@ -59,7 +59,7 @@
             padding: 10px 15px;
             font-size: 16px;
             cursor: pointer;
-            margin-bottom: 20px; /* Adjusted margin to create space below the button */
+            margin-bottom: 20px; 
         }
 
         button:hover {
@@ -75,14 +75,13 @@
 <body>
 
     <?php
-    // Include the database connection file
+   
     include 'database.php';
 
-    // Step 2: Fetch all contacts from the "contacts" table
+ 
     $sql = "SELECT * FROM contacts";
     $result = $conn->query($sql);
 
-    // Step 3: Display contact data in an HTML table
     echo "<table>
             <tr>
                 <th>ID</th>
@@ -104,7 +103,6 @@
 
     echo "</table>";
 
-    // Close the database connection
     $conn->close();
     ?>
 </body>

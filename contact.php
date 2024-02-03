@@ -1,5 +1,5 @@
 <?php
-include 'database.php'; // Include your database connection file
+include 'database.php'; 
 session_start();
 
 if(!isset($_SESSION['user_id'])){
@@ -9,15 +9,14 @@ if(!isset($_SESSION['user_id'])){
 
 
 if (isset($_POST['contact_btn'])) {
-    // Get form data
+   
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
 
-    // SQL query to insert data into the "contacts" table
     $sql = "INSERT INTO contacts (name, email, message) VALUES ('$name', '$email', '$message')";
 
-    // Perform the query
+
     if ($conn->query($sql) == TRUE) {
         header("Location: projekti.php");
         exit();
@@ -26,7 +25,7 @@ if (isset($_POST['contact_btn'])) {
     }
 }
 
-// Close the database connection
+
 $conn->close();
 ?>
 
