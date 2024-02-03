@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,21 +9,12 @@
   <title>About Us | BELLE</title>
   <link rel="stylesheet" href="projekti.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <section id="header" class="header">
+
   
 </head>
 <body>
+<?php include 'navbar.php'; ?>
 
-  <a href="#" class="logo">BELLE</a>
-    <nav class="navbar">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="products.html">Products</a>
-        <a href="contact.html">Contact</a>
-        <a href="registeri.html">Login</a>
-
-    </nav>
-</section>
 <section class="about" id="about">
     <div class="img">
         <img decoding="async" src="Foto/model1.jpg" alt="">

@@ -163,8 +163,5 @@ if (isset($_GET['id'])) {
         </div>
     </section>
 
-    <footer class="footer">
-        <!-- Your footer content here -->
-    </footer>
 </body>
 </html>
