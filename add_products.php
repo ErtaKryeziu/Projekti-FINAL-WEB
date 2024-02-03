@@ -42,7 +42,8 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="add_products.css"> <!-- Use an external stylesheet for common styles -->
+    <link rel="stylesheet" href="projekti.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* Scoped styles for add_products.php */
         body {
@@ -52,37 +53,7 @@ $conn->close();
             background-color: rgb(245, 212, 218);
         }
 
-        header {
-            position: sticky;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-            background: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem 9%;
-        }
-
-        header .logo {
-            font-size: 2.5rem;
-            color: #222;
-            font-weight: bolder;
-        }
-
-        header .navbar a {
-            margin: 0 1.5rem;
-            font-size: 1.7rem;
-            color: #222;
-            text-decoration: none;
-        }
-
-        header .navbar a:hover {
-            color: #F08080;
-        }
-
+        
         .form-container {
             display: flex;
             align-items: center;
@@ -152,24 +123,7 @@ $conn->close();
     <title>Add Products Page</title>
 </head>
 <body>
-    <header>
-        <a href="#" class="logo">BELLE</a>
-        <p style="font-size: 20px;"><?php echo $_SESSION['email'] ?></p>
-        <nav class="navbar">
-            <a href="projekti.php">Home</a>
-            <a href="about.html">About</a>
-            <a href="products.php">Products</a>
-            <a href="contact.html">Contact</a>
-
-            <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'administrator'): ?>
-                <a href="add_products.php">Add Products</a>
-            <?php endif; ?>
-
-            <?php if(isset($_SESSION['user_id'])): ?>
-                <a href="logout.php">Logout</a>
-            <?php endif; ?>
-        </nav>
-    </header>
+<?php include 'navbar.php'; ?>
 
     <div class="form-container">
         <div class="form-box">
