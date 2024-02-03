@@ -7,6 +7,16 @@
         exit();
     }
 
+    $productQuery = "SELECT * FROM products ORDER BY id DESC LIMIT 3";
+    $productResult = mysqli_query($conn, $productQuery);
+
+    $products = array();
+
+    // Store the products in an array
+    while ($row = mysqli_fetch_assoc($productResult)) {
+        $products[] = $row;
+    }
+
     
 
 ?>
@@ -28,11 +38,7 @@
 
     <?php include 'navbar.php'; ?>
 
-            <?php if(isset($_SESSION['user_id'])): ?>
-               
-            <?php endif; ?>
-
-
+ 
     <section class="home" id="home">
 
         <div class="slide active" style="background:url(foto/background.jpg) no-repeat; background-size:cover;
@@ -65,92 +71,37 @@
     </section>
 
 
-    <section class="category">
-        <h1 class="heading">Categories</h1>
-        <div class="box-container">
 
-            <a href="#" class="box">
-                <img decoding="async" src="foto/primer.png">
-                <h3>Skincare</h3>
-            </a>
-
-            <a href="#" class="box">
-                <img decoding="async" src="foto/lips.png">
-                <h3>Lips</h3>
-            </a>
-
-            <a href="#" class="box">
-                <img decoding="async" src="foto/f.jpg">
-                <h3>Foundation</h3>
-            </a>
-
-            <a href="#" class="box">
-                <img decoding="async" src="foto/eye.JPG">
-                <h3>Eye makeup</h3>
-            </a>
-
-            <a href="#" class="box">
-                <img decoding="async" src="foto/blush.jpg">
-                <h3>Blush</h3>
-            </a>
-
-            <a href="#" class="box">
-                <img decoding="async" src="foto/Bronzer.png">
-                <h3>Bronzer</h3>
-            </a>
-
-        </div>
     </section>
 
 
 
 <!--arrivals-->
-    <section class="sop" id="sop">
-        <h1 class="heading">The new christmas collection</h1>
-        <div class="box-container">
-    
-            <div class="box">
-                <div class="img">
-                    <img src="Foto/red.jpg">
-    
-                </div>
-                <div class="content">
-                    <h3>Red Matte Lipstick</h3>
-                    <div class="price">$15</div>
-                    <a href="#" class="btn">Add to cart</a>
-                </div>
-    
-            </div>
-            <div class="box">
-                <div class="img">
-                    <img src="foto/sy.jpg">
-    
-    
-                </div>
-                <div class="content">
-                    <h3>The Elf Eyeshadow</h3>
-                    <div class="price">$13.99 </div>
-                    <a href="#" class="btn">Add to cart</a>
-                </div>
-    
-            </div>
-    
-            <div class="box">
-                <div class="img">
-                    <img src="Foto/balm.jpg">
-    
-    
-                </div>
-                <div class="content">
-                    <h3>Lip Balm</h3>
-                    <div class="price">$5</div>
-                    <a href="#" class="btn">Add to cart</a>
-                </div>
-    
-            </div>
-    
-     </div>
-    </section>
+<section class="sop" id="sop">
+    <h1 class="heading">Check Products for more products like this</h1>
+    <div class="box-container">
+
+        <?php
+        // Display the products using the specified design
+        foreach ($products as $product) {
+            echo '<div class="box">';
+            echo '<a href="view_product.php?id=' . $product['id'] . '">';
+            echo '<div class="img">';
+            echo '<img src="' . $product['image_url'] . '" alt="' . $product['name'] . '">';
+            echo '</div>';
+            echo '</a>';
+            echo '<div class="content">';
+            echo '<h3>' . $product['name'] . '</h3>';
+            echo '<div class="price">$' . $product['price'] . '</div>';
+            echo '<a href="#" class="btn">Add to cart</a>';
+            echo '</div>';
+            echo '</div>';
+        }
+        ?>
+
+    </div>
+</section>
+
 
  
         <!--Special offer    -->
@@ -212,6 +163,7 @@
         </div>
     </footer>
 
+    <script src="projekti.js"></script>
 
     <script>
         let slideIndex = 0;
