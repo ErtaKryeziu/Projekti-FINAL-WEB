@@ -1,6 +1,6 @@
 <?php 
 
-
+ 
     include 'database.php';
     session_start();
     if(!isset($_SESSION['user_id'])){
@@ -10,7 +10,6 @@
     $produktetQUERY= "SELECT * FROM products";
     $result = $conn->query($produktetQUERY);
     
-
 ?>
 
 
@@ -37,11 +36,11 @@
                 ?>
         <div class="box">
             <div class="img">
-                <img src="<?php echo $row['image_url']; ?>" alt="<?php echo $row['name']; ?>">
+                <img src="<?php echo $row['image_url']; ?>" alt="<?php echo $row['Name']; ?>">
             </div>
             <div class="content">
-                <h3><?php echo $row['name']; ?></h3>
-                <div class="price">$<?php echo $row['price']; ?></div>
+                <h3><?php echo $row['Name']; ?></h3>
+                <div class="price">$<?php echo $row['Price']; ?></div>
                 <a href="#" class="btn">Add to cart</a>
             </div>
 
