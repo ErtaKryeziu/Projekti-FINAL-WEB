@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
 
     if ($_SESSION['role'] != 'administrator') {
     die("Not authorized to view products.");
@@ -109,4 +109,3 @@ session_start();
     ?>
 </body>
 </html>
-s

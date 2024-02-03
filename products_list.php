@@ -1,7 +1,7 @@
 <!-- products_list.php -->
 <?php
 include 'database.php';
-session_start();
+
 
 // Check if the user has administrative privileges
 if ($_SESSION['role'] != 'administrator') {
