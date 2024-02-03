@@ -78,7 +78,7 @@
 
 <!--arrivals-->
 <section class="sop" id="sop">
-    <h1 class="heading">Check Products for more products like this</h1>
+    <h1 class="heading">The New Christmas Collection</h1>
     <div class="box-container">
 
         <?php
