@@ -54,6 +54,8 @@
         </div>
 
     </section>
+    
+    <!--Slider-->
 
     <section class="slideshow-container">
         <div class="mySlides">
@@ -117,7 +119,7 @@
     </div>
 </section>
 
-<!--Slider-->
+
 <section class=""></section>
 
     <footer class="footer">

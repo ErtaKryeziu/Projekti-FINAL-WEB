@@ -152,7 +152,10 @@ if (isset($_GET['id'])) {
 
 
                     <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'administrator'): ?>
-                        <p class="added-by">Added by: <?php echo $product['username']; ?></p>
+                        <p class="added-by" style="font-size: 15px;">Added by: <?php echo $product['username']; ?></p>
+                        <?php if($product['updated_by'] != null):?>
+                            <p class="updated-by" style="font-size: 15px;">Updated by: <?php echo $product['username']; ?></p>
+                    <?php endif; ?>
                     <?php endif; ?>
 
                     <a href="#" class="btn">Add to cart</a>

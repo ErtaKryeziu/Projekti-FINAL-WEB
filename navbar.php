@@ -2,7 +2,9 @@
 <section id="header" class="header">
 
 <a href="#" class="logo">BELLE</a>
-<p style="font-size: 20px;"><?php echo $_SESSION['email'] ?></p>
+<?php if(isset($_SESSION['email'])):?>
+    <p style="font-size: 20px;"><?php echo $_SESSION['email'] ?></p>
+    <?php endif;?>
 <nav class="navbar">
     <a href="projekti.php">Home</a>
     <a href="about.php">About</a>

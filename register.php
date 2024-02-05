@@ -25,7 +25,7 @@
             echo '<div class="alert alert-danger" role="alert">Username is already taken. Please choose a different username.</div>';
         } else {
           
-            $insertUserQuery = "INSERT INTO users (username, email, password, role, image_url) VALUES ('$username', '$email', '$password', '$selectedRole', '$avatar')";
+            $insertUserQuery = "INSERT INTO users (username, email, password, role, avatar) VALUES ('$username', '$email', '$password', '$selectedRole', '$avatar')";
             if ($conn->query($insertUserQuery) === TRUE) {
    
                 $_SESSION['user_id'] = $conn->insert_id;

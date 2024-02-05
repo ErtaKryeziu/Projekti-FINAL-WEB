@@ -35,16 +35,25 @@
             while($row = $result->fetch_assoc()) {
                 ?>
         <div class="box">
-            <div class="img">
-                <img src="<?php echo $row['image_url']; ?>" alt="<?php echo $row['name']; ?>">
+        <a href="view_product.php?id=<?php echo $row['id']; ?>">
+                    <div class="img">
+                        <img src="<?php echo $row['image_url']; ?>" alt="<?php echo $row['name']; ?>">
+                    </div>
+                </a>
+                <div class="content">
+                    <h3><?php echo $row['name']; ?></h3>
+                    <h3 class="description"><?php echo $row['description']; ?></h3>
+                    <div class="price">$<?php echo $row['price']; ?></div>
+                    
+                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'administrator'): ?>
+                        <p class="added-by" style="font-size: 15px;">Added by: <?php echo $row['username']; ?></p>
+                        <?php if($row['updated_by'] != null):?>
+                            <p class="updated-by" style="font-size: 15px;">Updated by: <?php echo $row['username']; ?></p>
+                    <?php endif; ?>
+                    <?php endif; ?>
+                    <a href="#" class="btn">Add to cart</a>
+                </div>
             </div>
-            <div class="content">
-                <h3><?php echo $row['name']; ?></h3>
-                <div class="price">$<?php echo $row['price']; ?></div>
-                <a href="#" class="btn">Add to cart</a>
-            </div>
-
-        </div>
         <?php
             }
         } else{

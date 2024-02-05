@@ -2,11 +2,6 @@
 include 'database.php'; 
 session_start();
 
-if(!isset($_SESSION['user_id'])){
-    header('Location: login.php');
-    exit();
-}
-
 
 if (isset($_POST['contact_btn'])) {
    
@@ -18,8 +13,8 @@ if (isset($_POST['contact_btn'])) {
 
 
     if ($conn->query($sql) == TRUE) {
-        header("Location: projekti.php");
-        exit();
+        echo "<div class='custom-alert success' id='success-alert'>Message sent successfully!</div>";
+        echo "<script>setTimeout(function(){ document.getElementById('success-alert').style.display='none'; }, 5000);</script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -37,6 +32,25 @@ $conn->close();
   <title>Contact Us | Belle</title>
   <link rel="stylesheet" href="projekti.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+.custom-alert {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    width: 300px;
+    border-radius: 5px;
+    z-index: 9999;
+}
+
+.success {
+    background-color: #4CAF50; 
+}
+</style>
 </head>
 <body>
     <?php include 'navbar.php'; ?>

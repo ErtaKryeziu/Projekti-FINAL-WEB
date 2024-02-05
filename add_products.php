@@ -5,7 +5,7 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
-} else if (!$_SESSION['role'] == 'administrator') {
+} if ($_SESSION['role'] != 'administrator') {
     header("Location: projekti.php");
     exit();
 }
