@@ -2,6 +2,10 @@
     session_start();
 include 'database.php';
 
+if(isset($_SESSION['user_id']) && $_SESSION['user_id']) {
+    header('Location: projekti.php');
+    exit();
+}
 
 if(isset($_POST['login_btn'])){
     $email = $_POST['email'];
